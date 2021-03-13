@@ -1,5 +1,6 @@
 @import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import "~ngx-toastr/toastr.css";
 
 /*override the AG Grid styles starts*/
 .ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), 
@@ -42,4 +43,10 @@ legend {
 }
 .cancel {
     margin: 0 10px 0;
+}
+.confirm-actions, .confirm-message{
+    text-align: center;
+}
+.yes-button, .no-button{
+    width: 85px;
 }

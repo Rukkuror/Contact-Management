@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+
 import { NewContactComponent } from './contacts/new-contact/new-contact.component';
+import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
-    NewContactComponent
+    NewContactComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,8 @@ import { NewContactComponent } from './contacts/new-contact/new-contact.componen
     HttpClientModule,
     AgGridModule.withComponents([]),
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

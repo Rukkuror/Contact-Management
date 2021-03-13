@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllCommunityModules, GridApi, Module } from '@ag-grid-community/all-modules';
 import { ContactService } from '../service/contact.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -12,7 +13,7 @@ export class ContactsComponent implements OnInit {
   totalRows: any;
   rowSelection: string;
 
-  constructor(public _contactService: ContactService) { 
+  constructor(public _contactService: ContactService, private router: Router) { 
     this.rowSelection='single';
   }
 
@@ -39,6 +40,7 @@ export class ContactsComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
+    this.gridColumnApi.getColumn('name').setSort("asc");
   }
   
   ngOnInit(): void {
@@ -60,6 +62,6 @@ export class ContactsComponent implements OnInit {
   }
 
   showClickedContactInfo(data){
-    console.log(data)
+    this.router.navigate(['./contacts/'+ data.id]);
   }
 }
