@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <form [formGroup]="newContactForm">
+    <form [formGroup]="editContactForm" (ngSubmit)="updateContact()">
         <fieldset>
             <legend>Contact Details</legend>
             <div class="row flex">
@@ -53,22 +53,9 @@
 
                 <div class="action-buttons">                            
                     <a (click)="goBack();" class="btn btn-secondary cancel">Cancel</a>
-                    <button type="submit" (click)="modalOpen(confirmModal)" [disabled]="newContactForm.invalid" class="btn btn-primary save">Save</button>                    
+                    <button type="submit" [disabled]="editContactForm.invalid" class="btn btn-primary save">Save</button>                    
                 </div>
-            </div>                                
+            </div>                    
         </fieldset>                               
-    </form>
-        
-    <!-- Modal popup for Issue Invoice-->
-    <ng-template #confirmModal let-modal>
-        <div class="modal-body">
-            <p class="confirm-message">Are you sure want to create a new contact?</p>
-            <div class="confirm-actions">
-                <button ngbAutofocus (click)="createContact();"
-                    class="btn btn-primary yes-button">Yes</button>&nbsp;
-                <button (click)="modal.close('Not Confirm')"
-                    class="btn btn-secondary no-button">No</button>
-            </div>
-        </div>
-    </ng-template>
+    </form>      
 </div>
