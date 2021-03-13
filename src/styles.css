@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+/*override the AG Grid styles starts*/
+.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), 
+.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus.ag-cell-range-single-cell, 
+.ag-theme-alpine .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle, 
+.ag-theme-alpine .ag-rtl .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), 
+.ag-theme-alpine .ag-rtl .ag-has-focus .ag-cell-focus.ag-cell-range-single-cell, 
+.ag-theme-alpine .ag-rtl .ag-cell-range-single-cell.ag-cell-range-handle {
+    border: none;
+}
+.ag-theme-alpine .ag-row-selected, .ag-theme-alpine .ag-row-hover {
+    background-color: #f5f3f4 !important;
+}
+.ag-theme-alpine .ag-row {
+    cursor: pointer;
+}
+/*override the AG Grid styles ends*/

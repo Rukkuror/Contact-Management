@@ -1,0 +1,10 @@
+{
+  "contacts": [
+      { "id": 1, "name": "json-server", "jobTitle": "typicode", "phone": "123568444", "company": "Test", "address" : "test", 
+          "email" : "gdsfs", "lastDateContacted": "", "comments":"hfghg" 
+      },
+      { "id": 2, "name": "json-server 2", "jobTitle": "typicode", "phone": "123568444", "company": "Test", "address" : "test", 
+        "email" : "gdsfs", "lastDateContacted": "12/03/2021", "comments":"fghfgh" 
+      }
+  ]   
+}
