@@ -1,19 +1,21 @@
-<div class="main-section">
-    <div class="create-new">
-        
-    </div>
-    <div>
-        <ag-grid-angular
-        style="height: 420px;"
-        class="ag-theme-alpine" 
-        id="ContactsGrid"
-        [rowData]="rowData"
-        [columnDefs]="contactsColumnDefs"
-        [pagination]="true"
-        [rowSelection]="rowSelection"
-        [paginationPageSize]="paginationPageSize"
-        (selectionChanged)="showContactDetails($event)"
-        (gridReady)="onGridReady($event)">
-        </ag-grid-angular>
+<div class="container-fluid">
+    <div class="row flex">
+        <div class="col-md-12 create-new-button">
+            <a [routerLink]="['/contacts/new']" class="btn btn-primary new-create-link">Create New Contact</a>
+        </div>
+        <div class="col-md-12">
+            <ag-grid-angular
+            style="height: 420px;"
+            class="ag-theme-alpine" 
+            id="ContactsGrid"
+            [rowData]="rowData"
+            [columnDefs]="contactsColumnDefs"
+            [pagination]="true"
+            [rowSelection]="rowSelection"
+            [paginationPageSize]="paginationPageSize"
+            (selectionChanged)="showContactDetails($event)"
+            (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+        </div>
     </div>
 </div>

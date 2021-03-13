@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-    private baseUrl = 'http://localhost:3000/contacts';
 
     constructor(private http: HttpClient) { }
 
-    //to get all contacts
+    //to get all contacts - GET
     getContacts():Observable<any>{
-        return this.http.get<any>(this.baseUrl);
+        return this.http.get<any>(environment.contactsUrl);
+    }
+
+    //to create contact - POST
+    createContact(object: Object){
+        return this.http.post(environment.contactsUrl, object);
+    }
+
+    //to update contact - PUT
+    updateContact(object: Object){
+        return this.http.put(environment.contactsUrl, object);
     }
 }
