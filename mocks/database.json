@@ -1,10 +1,103 @@
 {
   "contacts": [
-      { "id": 1, "name": "json-server", "jobTitle": "typicode", "phone": "123568444", "company": "Test", "address" : "test", 
-          "email" : "gdsfs", "lastDateContacted": "", "comments":"hfghg" 
-      },
-      { "id": 2, "name": "json-server 2", "jobTitle": "typicode", "phone": "123568444", "company": "Test", "address" : "test", 
-        "email" : "gdsfs", "lastDateContacted": "12/03/2021", "comments":"fghfgh" 
-      }
-  ]   
+    {
+      "id": 1,
+      "name": "json-server",
+      "jobTitle": "typicode",
+      "phone": "123568444",
+      "company": "Test",
+      "address": "test",
+      "email": "gdsfs",
+      "lastDateContacted": "",
+      "comments": "hfghg"
+    },
+    {
+      "id": 2,
+      "name": "json-server 2",
+      "jobTitle": "typicode",
+      "phone": "123568444",
+      "company": "Test",
+      "address": "test",
+      "email": "gdsfs",
+      "lastDateContacted": "2021-03-17",
+      "comments": "fghfgh"
+    },
+    {
+      "name": "fghfgh",
+      "jobTitle": "Finance",
+      "company": "XYZ Corp",
+      "address": "test updated",
+      "phone": "3454543543",
+      "email": "testtodayrk@mailinator.com",
+      "lasteDateContacted": "2021-03-18",
+      "comments": "hfgh",
+      "id": 3
+    },
+    {
+      "name": "test mock",
+      "jobTitle": "test",
+      "company": "ABC Company",
+      "address": "tesy",
+      "phone": "34366",
+      "email": "testtodayrk@mailinator.com",
+      "lasteDateContacted": "2021-03-11",
+      "comments": "test test",
+      "id": 4
+    },
+    {
+      "name": "test mock",
+      "jobTitle": "test",
+      "company": "ABC Company",
+      "address": "tesy",
+      "phone": "34366",
+      "email": "testtodayrk@mailinator.com",
+      "lasteDateContacted": "2021-03-11",
+      "comments": "test test",
+      "id": 5
+    },
+    {
+      "name": "testrk-updated .",
+      "jobTitle": "test",
+      "company": "XYZ Corp",
+      "address": "test updated",
+      "phone": "3454543543",
+      "email": "testtodayrk@mailinator.com",
+      "lasteDateContacted": "2021-03-18",
+      "comments": "tst",
+      "id": 6
+    },
+    {
+      "name": "testrk-updated .",
+      "jobTitle": "Finance",
+      "company": "XYZ Corp",
+      "address": "test updated",
+      "phone": "3454543543",
+      "email": "testtodayrk@mailinator.com",
+      "lasteDateContacted": "2021-03-11",
+      "comments": "gfdgfdg",
+      "id": 7
+    },
+    {
+      "name": "testrk-updated .",
+      "jobTitle": "Finance",
+      "company": "XYZ Corp",
+      "address": "test updated",
+      "phone": "3454543543",
+      "email": "testtodayrk@mailinator.com",
+      "lastDateContacted": "2021-03-17",
+      "comments": "test",
+      "id": 8
+    },
+    {
+      "name": "fdsf",
+      "jobTitle": "Finance",
+      "company": "XYZ Corp",
+      "address": "test updated",
+      "phone": "3454543543",
+      "email": "testtodayrk@mailinator.com",
+      "lastDateContacted": "2021-03-25",
+      "comments": "sdfds",
+      "id": 9
+    }
+  ]
 }

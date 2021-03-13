@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <form [formGroup]="newContactForm" (ngSubmit)="createContact()">
+        <fieldset>
+            <legend>Contact Details</legend>
+            <div class="row flex">
+                <div class="col-md-4">
+                    <div class="form-group">  
+                        <label for="name" class="control-label col-md-4">Name</label>
+                        <input type="text" name="name" id="name" class="col-md-7" formControlName="name">
+                    </div>
+
+                    <div class="form-group">  
+                        <label for="jobTitle" class="control-label col-md-4">Job Title</label>
+                        <input type="text" name="jobTitle" id="jobTitle" class="col-md-7" formControlName="jobTitle">
+                    </div>
+
+                    <div class="form-group">  
+                        <label for="company" class="control-label col-md-4">Company</label>
+                        <select name="Prefix" id="Prefix" class="col-md-7" formControlName="company">                                    
+                            <option *ngFor="let company of companyList" [value]="company.name">{{company.name }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">  
+                        <label for="address" class="control-label col-md-4">Address</label>
+                        <input type="text" name="address" id="address" class="col-md-7" formControlName="address">
+                    </div>
+
+                    <div class="form-group">  
+                        <label for="phone" class="control-label col-md-4">Phone</label>
+                        <input type="text" name="phone" id="phone" class="col-md-7" formControlName="phone">
+                    </div>
+
+                    <div class="form-group">  
+                        <label for="email" class="control-label col-md-4">Email</label>
+                        <input type="email" name="email" id="email" class="col-md-7" formControlName="email">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">  
+                        <label for="lasteDateContacted" class="control-label col-md-4">Last Date Contacted</label>
+                        <input type="date" name="lasteDateContacted" id="lasteDateContacted" class="col-md-7" formControlName="lastDateContacted">
+                    </div>
+
+                    <div class="form-group">  
+                        <label for="comments" class="control-label col-md-4">Comments</label>
+                        <textarea name="comments" rows="5" cols="45" formControlName="comments"></textarea>
+                    </div>
+                </div>
+
+                <div class="action-buttons">                            
+                    <a (click)="goBack();" class="btn btn-secondary cancel">Cancel</a>
+                    <button type="submit" [disabled]="newContactForm.invalid" class="btn btn-primary save">Save</button>                    
+                </div>
+            </div>                    
+        </fieldset>                               
+    </form>      
+</div>

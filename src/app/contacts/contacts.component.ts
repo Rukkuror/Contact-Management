@@ -17,8 +17,11 @@ export class ContactsComponent implements OnInit {
   }
 
   contactsColumnDefs = [
-    { headerName: 'Name', field: 'name', filter: true, sortable: true, resizable: true },
-    { headerName: 'Job Title', field: 'jobTitle', filter: true, sortable: true, resizable: true },
+    { headerName: "Name (Job Title)", field: 'name', filter: true, sortable: true, resizable: true,
+      cellRenderer: function(param){
+        return param.data.name+ ' ('+ param.data.jobTitle +')';
+      }
+    },    
     { headerName: 'Company', field: 'company', filter: true, sortable: true, resizable: true },
     { headerName: 'Phone', field: 'phone', filter: true, sortable: true, resizable: true },
     { headerName: 'Address', field: 'address', filter: true, sortable: true, resizable: true },
@@ -53,6 +56,10 @@ export class ContactsComponent implements OnInit {
   //On select of each row. Function called from accounting-period.component.html in (selectionChanged) ag grid
   showContactDetails(message: string) {
     var selectedRow = this.gridApi.getSelectedRows();
-    console.log(selectedRow);
+    this.showClickedContactInfo(selectedRow[0]);
+  }
+
+  showClickedContactInfo(data){
+    console.log(data)
   }
 }

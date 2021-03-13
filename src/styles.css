@@ -17,3 +17,29 @@
     cursor: pointer;
 }
 /*override the AG Grid styles ends*/
+
+/*Genera styles*/
+.create-new-button{
+    margin: 10px 0 10px;
+}
+fieldset{
+    border: 2px solid #eeeeee;
+}
+legend {
+    font-size: 18px;
+    width: auto;
+    margin: 0 15px 0;
+    padding: 0 5px 0;
+    text-align: left;
+}
+.action-buttons{
+    width: 100%;
+    margin: 2%;
+}
+.save, .cancel {
+    float: right;
+    min-width: 100px;
+}
+.cancel {
+    margin: 0 10px 0;
+}
