@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './service/http-error.interceptor';
 import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { EditContactComponent } from './contacts/edit-contact/edit-contact.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     AgGridModule.withComponents([]),
@@ -28,7 +31,11 @@ import { EditContactComponent } from './contacts/edit-contact/edit-contact.compo
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,  useClass: HttpErrorInterceptor,  multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

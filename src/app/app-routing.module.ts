@@ -8,8 +8,11 @@ import { EditContactComponent } from './contacts/edit-contact/edit-contact.compo
 const routes: Routes = [
   { path: '', redirectTo: 'contacts', pathMatch: 'full' },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'contacts/new', component: NewContactComponent },
-  { path: 'contacts/:id', component: EditContactComponent }  
+  { path: 'contacts', 
+    children: [
+    { path: 'new', component: NewContactComponent },
+    { path: ':id', component: EditContactComponent }
+  ]},    
 ];
 
 @NgModule({

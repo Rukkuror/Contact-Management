@@ -2,157 +2,25 @@
   "contacts": [
     {
       "id": 1,
-      "name": "json-server",
-      "jobTitle": "typicode",
-      "company": "Test",
-      "address": "test",
-      "phone": "123568444",
-      "email": "gdsfs",
+      "name": "one",
+      "jobTitle": "Test Engineer",
+      "company": "Disney",
+      "address": "123 test address ER",
+      "phone": "789-098-9887",
+      "email": "test@gm.com",
       "lastDateContacted": "2021-03-19",
-      "comments": "hfghg"
+      "comments": "Test updated..."
     },
     {
       "id": 2,
-      "name": "json-server 2",
-      "jobTitle": "typicode",
-      "company": "Test",
-      "address": "test",
-      "phone": "123568444",
-      "email": "gdsfs",
-      "lastDateContacted": "2021-03-17",
-      "comments": "fghfghsfdsfsdfsdfsdfsdfsd"
-    },
-    {
-      "name": "fghfgh",
-      "jobTitle": "Finance",
-      "company": "XYZ Corp",
-      "address": "test updated",
+      "name": "two",
+      "jobTitle": "test world",
+      "company": "HP",
+      "address": "122 Lyman Street",
       "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lasteDateContacted": "2021-03-18",
-      "comments": "hfgh",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "name": "test mock",
-      "jobTitle": "test",
-      "company": "ABC Company",
-      "address": "tesy",
-      "phone": "34366",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-04",
-      "comments": "test test"
-    },
-    {
-      "name": "test mock",
-      "jobTitle": "test",
-      "company": "ABC Company",
-      "address": "tesy",
-      "phone": "34366",
-      "email": "testtodayrk@mailinator.com",
-      "lasteDateContacted": "2021-03-11",
-      "comments": "test test",
-      "id": 5
-    },
-    {
-      "name": "testrk-updated .",
-      "jobTitle": "test",
-      "company": "XYZ Corp",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lasteDateContacted": "2021-03-18",
-      "comments": "tst",
-      "id": 6
-    },
-    {
-      "name": "testrk-updated .",
-      "jobTitle": "Finance",
-      "company": "XYZ Corp",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lasteDateContacted": "2021-03-11",
-      "comments": "gfdgfdg",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "name": "updated test",
-      "jobTitle": "Finance 123",
-      "company": "XYZ Corp",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-17",
-      "comments": "test 3 17"
-    },
-    {
-      "id": 9,
-      "name": "fdsf",
-      "jobTitle": "Finance",
-      "company": "XYZ Corp",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-25",
-      "comments": "testttttt"
-    },
-    {
-      "name": "test",
-      "jobTitle": "test",
-      "company": "XYZ Corp",
-      "address": "te",
-      "phone": "5756434364",
-      "email": "testtodayrk@mailinator.com",
+      "email": "testtodayrk@mailir.com",
       "lastDateContacted": "2021-03-26",
-      "comments": "567567",
-      "id": 10
-    },
-    {
-      "name": "testrk-updated .",
-      "jobTitle": "Finance",
-      "company": "ABC Company",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-17",
-      "comments": "we are",
-      "id": 11
-    },
-    {
-      "name": "qwerty",
-      "jobTitle": "test",
-      "company": "World Wide",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-27",
-      "comments": "testtttt",
-      "id": 12
-    },
-    {
-      "name": "testrk-updated .",
-      "jobTitle": "Finance",
-      "company": "ABC Company",
-      "address": "test updated",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-11",
-      "comments": "utruty",
-      "id": 13
-    },
-    {
-      "name": "ertre",
-      "jobTitle": "ertret",
-      "company": "XYZ Corp",
-      "address": "ertre",
-      "phone": "4353453",
-      "email": "testtodayrk@mailinator.com",
-      "lastDateContacted": "2021-03-19",
-      "comments": "34543543",
-      "id": 14
+      "comments": "ok ok..."
     }
   ]
 }
