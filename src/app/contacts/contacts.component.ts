@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AllCommunityModules, GridApi, Module } from '@ag-grid-community/all-modules';
 import { ContactService } from '../service/contact.service';
-import {Router} from '@angular/router';
-
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { formatDate } from '@angular/common';
+ 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -13,28 +15,30 @@ export class ContactsComponent implements OnInit {
   totalRows: any;
   rowSelection: string;
 
-  constructor(public _contactService: ContactService, private router: Router) { 
+  constructor(public _contactService: ContactService, private router: Router, private toastr: ToastrService) { 
     this.rowSelection='single';
   }
 
   contactsColumnDefs = [
-    { headerName: "Name (Job Title)", field: 'name', filter: true, sortable: true, resizable: true,
+    { headerName: "Name (Job Title)", field: 'name', filter: true, sortable: true, resizable: true, autoHeight: true,
       cellRenderer: function(param){
-        return param.data.name+ ' ('+ param.data.jobTitle +')';
+        return param.data.name+ '<br/>'+ param.data.jobTitle;
       }
     },    
     { headerName: 'Company', field: 'company', filter: true, sortable: true, resizable: true },
     { headerName: 'Phone', field: 'phone', filter: true, sortable: true, resizable: true },
     { headerName: 'Address', field: 'address', filter: true, sortable: true, resizable: true },
     { headerName: 'Email', field: 'email', filter: true, sortable: true, resizable: true },
-    { headerName: 'Last Contacted Date', field: 'lastDateContacted', filter: true, sortable: true, resizable: true }
+    { headerName: 'Last Contacted Date', field: 'lastDateContacted', filter: true, sortable: true, resizable: true,
+      valueFormatter: (params) => formatDate(params.data.lastDateContacted, 'MMM-y-d', 'en-US')
+    }
   ];
 
   // Pagination config starts
   public paginationPageSize = 20;
   private gridApi: GridApi;
   private gridColumnApi;
-
+ 
   //On grid ready function
   onGridReady(params) {
     this.gridApi = params.api;
@@ -42,7 +46,7 @@ export class ContactsComponent implements OnInit {
     this.gridApi.sizeColumnsToFit();
     this.gridColumnApi.getColumn('name').setSort("asc");
   }
-  
+
   ngOnInit(): void {
     this.getContacts();
   }
@@ -51,7 +55,9 @@ export class ContactsComponent implements OnInit {
   getContacts(){    
     this._contactService.getContacts().subscribe(
       data => this.rowData = data, 
-      error => console.log('Error', error),      
+      error => {
+        this.showError(error);
+      }      
     );
   }
 
@@ -63,5 +69,9 @@ export class ContactsComponent implements OnInit {
 
   showClickedContactInfo(data){
     this.router.navigate(['./contacts/'+ data.id]);
+  }
+
+  showError(error) {
+    this.toastr.error(error, 'Error');
   }
 }

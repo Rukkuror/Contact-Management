@@ -2,5 +2,12 @@ const baseURL = "http://localhost:3000/";
 
 export const environment = {
   production: false,
-  contactsUrl: baseURL.concat('contacts/'),
+  companyList: [
+    { name: "Disney" },
+    { name: "HP" },
+    { name: "Microsoft" },
+    { name: "IBM" },
+    { name: "Google" }
+  ],
+  contactsUrl: baseURL.concat('contacts/')
 };

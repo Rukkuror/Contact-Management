@@ -5,6 +5,7 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ContactService } from 'src/app/service/contact.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
  
 @Component({
   selector: 'app-new-contact',
@@ -20,12 +21,8 @@ export class NewContactComponent implements OnInit {
 
   constructor(public _contactService: ContactService, private fb: FormBuilder, private location: Location,
     private modalService: NgbModal, private router: Router, private toastr: ToastrService) { }
-
-  companyList = [
-    {name: "ABC Company"},
-    {name: "XYZ Corp"},
-    {name: "World Wide"}
-  ]
+ 
+  companyList = environment.companyList;
 
   ngOnInit(): void {
     this.newContactForm = this.fb.group({
@@ -34,10 +31,14 @@ export class NewContactComponent implements OnInit {
       company: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       lastDateContacted: ['', Validators.required],
       comments: [''],
     });
+  }
+
+  get f() {
+    return this.newContactForm.controls;
   }
 
   //Modal popup  open
@@ -73,7 +74,9 @@ export class NewContactComponent implements OnInit {
           this.contact = data;
           this.showSuccess();      
       }, 
-      error => ( this.showError() ) 
+      error => {
+        this.showError(error);
+      }
     );    
   }
 
@@ -81,8 +84,8 @@ export class NewContactComponent implements OnInit {
     this.toastr.success('Contact Added Successfully!', 'Success');
   }
   
-  showError() {
-    this.toastr.success('Something went wrong', 'Error');
+  showError(error) {
+    this.toastr.error(error, 'Error');
   }
 
 }

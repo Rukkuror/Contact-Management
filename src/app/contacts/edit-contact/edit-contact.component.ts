@@ -5,6 +5,7 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ContactService } from 'src/app/service/contact.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
  
 @Component({
   selector: 'app-edit-contact',
@@ -18,11 +19,7 @@ export class EditContactComponent implements OnInit {
   constructor(public _contactService: ContactService, private fb: FormBuilder, private location: Location, 
     private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private toastr: ToastrService) { }
 
-  companyList = [
-    {name: "ABC Company"},
-    {name: "XYZ Corp"},
-    {name: "World Wide"}
-  ]
+  companyList = environment.companyList;
 
   ngOnInit(): void {
     this.editContactForm = this.fb.group({
@@ -32,7 +29,7 @@ export class EditContactComponent implements OnInit {
       company: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       lastDateContacted: ['', Validators.required],
       comments: [''],
     }); 
@@ -40,14 +37,19 @@ export class EditContactComponent implements OnInit {
     this.route.params.subscribe(params => {
       this._contactService.getContact(params.id).subscribe(
         data => this.patchContactDetails(data), 
-        error => console.log('Error', error),      
+        error => {
+          this.showError(error);
+        }      
       );      
-    });    
-       
+    });      
   }
 
   patchContactDetails(data){
     this.editContactForm.patchValue(data);
+  }
+
+  get f() {
+    return this.editContactForm.controls;
   }
 
   //Location back
@@ -62,8 +64,10 @@ export class EditContactComponent implements OnInit {
         this.router.navigate(['/contacts']);
         this.contact = data;
         this.showSuccess();      
-    },
-      error => console.log('Error', error),      
+      },
+      error => {
+        this.showError(error);
+      }     
     );    
   }
 
@@ -71,7 +75,7 @@ export class EditContactComponent implements OnInit {
     this.toastr.success('Contact Updated Successfully!', 'Success');
   }
 
-  showError() {
-    this.toastr.success('Something went wrong', 'Error');
+  showError(error) {
+    this.toastr.error(error, 'Error');
   }
 }

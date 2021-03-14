@@ -2,7 +2,7 @@
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "~ngx-toastr/toastr.css";
 
-/*override the AG Grid styles starts*/
+/*override styles starts*/
 .ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), 
 .ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus.ag-cell-range-single-cell, 
 .ag-theme-alpine .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle, 
@@ -16,26 +16,70 @@
 }
 .ag-theme-alpine .ag-row {
     cursor: pointer;
+    height: 50px !important;
 }
-/*override the AG Grid styles ends*/
-
-/*Genera styles*/
-.create-new-button{
-    margin: 10px 0 10px;
+.ag-theme-alpine .ag-cell {
+    line-height: 18px !important;
+    padding: 10px !important;
+}
+.navbar-light .navbar-brand {
+    font-weight: 600;
 }
 fieldset{
     border: 2px solid #eeeeee;
 }
 legend {
-    font-size: 18px;
+    font-size: 16px;
     width: auto;
     margin: 0 15px 0;
     padding: 0 5px 0;
     text-align: left;
 }
+/*override styles ends*/
+/*Validation border*/
+.form-group select.ng-invalid, .form-group input.ng-invalid, .form-group textarea.ng-invalid{
+    border: 2px solid #a94442 !important;
+}
+.form-group select.ng-valid, .form-group input.ng-valid, .form-group textarea.ng-valid{
+    border: 2px solid #007f5f !important;
+}
+.form-group input, .form-group select, .form-group textarea {
+    border-radius: 5px;
+}
+.error-asterisk:after{
+    content: '*';
+    position: absolute;
+    color: #a94442;
+    font-size: 18px;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+}
+.error-asterisk-pl:after {
+    content: '*';
+    position: relative;
+    color: #a94442;
+    font-size: 18px;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+}
+/*Validation border*/
+/*Genera styles*/
+body{
+    font-family: 'Open Sans', sans-serif;
+} 
+.form-group label{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+.create-new-button{
+    margin: 10px 0 10px;
+}
 .action-buttons{
     width: 100%;
-    margin: 2%;
+    margin: 2% 5% 2%;
 }
 .save, .cancel {
     float: right;
@@ -49,4 +93,7 @@ legend {
 }
 .yes-button, .no-button{
     width: 85px;
+}
+.create-main, .edit-main{
+    margin: 3%;
 }
