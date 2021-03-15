@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, Validators, FormGroup, FormArray ,FormControl,NgForm} from '@angular/forms';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
@@ -15,13 +15,17 @@ import { environment } from 'src/environments/environment';
 export class EditContactComponent implements OnInit {
   editContactForm: FormGroup;
   contact: Object;
-
+  closeResult: string;
+  modalReference: any;
+  @ViewChild('confirmModal') confirmModal: any;
+  
   constructor(public _contactService: ContactService, private fb: FormBuilder, private location: Location, 
     private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private toastr: ToastrService) { }
 
   companyList = environment.companyList;
 
   ngOnInit(): void {
+    //edit for init
     this.editContactForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
@@ -34,6 +38,7 @@ export class EditContactComponent implements OnInit {
       comments: [''],
     }); 
 
+    //call the get by id API
     this.route.params.subscribe(params => {
       this._contactService.getContact(params.id).subscribe(
         data => this.patchContactDetails(data), 
@@ -44,6 +49,7 @@ export class EditContactComponent implements OnInit {
     });      
   }
 
+  //patching the contact details
   patchContactDetails(data){
     this.editContactForm.patchValue(data);
   }
@@ -52,12 +58,29 @@ export class EditContactComponent implements OnInit {
     return this.editContactForm.controls;
   }
 
+  //Modal popup  open
+  modalOpen(content) {
+    let ngbModalOptions: NgbModalOptions = {
+      backdrop: 'static',
+      keyboard: false,
+      centered: true
+    };
+    this.modalReference = this.modalService.open(content, ngbModalOptions);
+  }
+
   //Location back
   goBack() {
     this.location.back(); // <-- go back to previous location
   }
+
+  //on click save in form, call confirm popup
+  onConfirm(){
+    this.modalOpen(this.confirmModal);
+  }
   
+  //after confirmation, call the update API
   updateContact(){
+    this.modalReference.close();
     let x = this.editContactForm.value;
     this._contactService.updateContact(x).subscribe(
       data => {
@@ -71,10 +94,12 @@ export class EditContactComponent implements OnInit {
     );    
   }
 
+  //On success toastr
   showSuccess() {
     this.toastr.success('Contact Updated Successfully!', 'Success');
   }
 
+  //On error toastr
   showError(error) {
     this.toastr.error(error, 'Error');
   }

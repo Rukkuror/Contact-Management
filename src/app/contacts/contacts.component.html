@@ -15,6 +15,7 @@
             [paginationPageSize]="paginationPageSize"
             [getRowHeight]="10"
             (selectionChanged)="showContactDetails($event)"
+            (firstDataRendered)="firstRowRendered($event)"
             (gridReady)="onGridReady($event)">
             </ag-grid-angular>
         </div>

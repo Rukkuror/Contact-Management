@@ -2,25 +2,14 @@
   "contacts": [
     {
       "id": 1,
-      "name": "one",
-      "jobTitle": "Test Engineer",
-      "company": "Disney",
-      "address": "123 test address ER",
-      "phone": "789-098-9887",
-      "email": "test@gm.com",
-      "lastDateContacted": "2021-03-19",
-      "comments": "Test updated..."
-    },
-    {
-      "id": 2,
-      "name": "two",
-      "jobTitle": "test world",
-      "company": "HP",
-      "address": "122 Lyman Street",
-      "phone": "3454543543",
-      "email": "testtodayrk@mailir.com",
-      "lastDateContacted": "2021-03-26",
-      "comments": "ok ok..."
+      "name": "Rukmangathan",
+      "jobTitle": "Engineer",
+      "company": "Google",
+      "address": "123, port Street, TK",
+      "phone": "123-456-7890",
+      "email": "ruk@gmail.com",
+      "lastDateContacted": "2021-03-18",
+      "comments": "test comments"
     }
   ]
 }

@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, Validators, FormGroup, FormArray ,FormControl,NgForm} from '@angular/forms';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ContactService } from 'src/app/service/contact.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
  
@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 export class NewContactComponent implements OnInit {
   newContactForm: FormGroup;
   contact: Object;
-  closeResult: string;
   modalReference: any;
   @ViewChild('confirmModal') confirmModal: any;
 
@@ -25,6 +24,7 @@ export class NewContactComponent implements OnInit {
   companyList = environment.companyList;
 
   ngOnInit(): void {
+    //new form init
     this.newContactForm = this.fb.group({
       name: ['', Validators.required],
       jobTitle: ['', Validators.required],
@@ -49,11 +49,6 @@ export class NewContactComponent implements OnInit {
       centered: true
     };
     this.modalReference = this.modalService.open(content, ngbModalOptions);
-    this.modalReference.result.then((result) => {
-      this.closeResult = 'Closed with: ${result}';
-    }, (reason) => {
-      this.closeResult = 'Dismissed';
-    });
   }
 
   //Location back
@@ -61,10 +56,12 @@ export class NewContactComponent implements OnInit {
     this.location.back(); // <-- go back to previous location
   }
   
+  //on click save in form, call confirm popup
   onConfirm(){
     this.modalOpen(this.confirmModal);
   }
 
+  //after confirmation, call the create API
   createContact(){
     this.modalReference.close();
     let x = this.newContactForm.value;
@@ -80,10 +77,12 @@ export class NewContactComponent implements OnInit {
     );    
   }
 
+  //On success toastr
   showSuccess() {
     this.toastr.success('Contact Added Successfully!', 'Success');
   }
   
+  //On error toastr
   showError(error) {
     this.toastr.error(error, 'Error');
   }

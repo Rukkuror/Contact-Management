@@ -19,8 +19,9 @@ export class ContactsComponent implements OnInit {
     this.rowSelection='single';
   }
 
+  //AG Grid column definition
   contactsColumnDefs = [
-    { headerName: "Name (Job Title)", field: 'name', filter: true, sortable: true, resizable: true, autoHeight: true,
+    { headerName: "Name (Job Title)", field: 'name', filter: true, sortable: true, resizable: true, autoHeight: true, suppressSizeToFit: true,
       cellRenderer: function(param){
         return param.data.name+ '<br/>'+ param.data.jobTitle;
       }
@@ -42,11 +43,16 @@ export class ContactsComponent implements OnInit {
   //On grid ready function
   onGridReady(params) {
     this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-    this.gridApi.sizeColumnsToFit();
+    this.gridColumnApi = params.columnApi;    
     this.gridColumnApi.getColumn('name').setSort("asc");
   }
 
+  //once grid loaded with first row resize the ag grid table
+  firstRowRendered(e){
+    this.gridApi.sizeColumnsToFit();
+  }
+
+  //on Init
   ngOnInit(): void {
     this.getContacts();
   }
@@ -54,23 +60,27 @@ export class ContactsComponent implements OnInit {
   //to get all contacts
   getContacts(){    
     this._contactService.getContacts().subscribe(
-      data => this.rowData = data, 
+      data => {
+        this.rowData = data;        
+      },
       error => {
         this.showError(error);
       }      
     );
   }
 
-  //On select of each row. Function called from accounting-period.component.html in (selectionChanged) ag grid
+  //On select of each row called from HTML AG grid
   showContactDetails(message: string) {
     var selectedRow = this.gridApi.getSelectedRows();
     this.showClickedContactInfo(selectedRow[0]);
   }
 
+  //On select of row click
   showClickedContactInfo(data){
     this.router.navigate(['./contacts/'+ data.id]);
   }
 
+  //Toastr error message
   showError(error) {
     this.toastr.error(error, 'Error');
   }
